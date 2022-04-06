@@ -243,9 +243,9 @@ export class GlobalLoader extends React.Component<GlobalLoaderComponentProps, Gl
     if (reject) {
       this.props.onReject?.();
     } else if (this.state.rejected) {
-        this.setState({ accept: true });
-        this.props.onAccept?.();
-      }
+      this.setState({ accept: true });
+      this.props.onAccept?.();
+    }
     this.setState({ rejected: reject });
   };
 

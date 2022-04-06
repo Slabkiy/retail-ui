@@ -192,9 +192,7 @@ describe('DateInput as InputlikeText', () => {
         : 'does not call onValueChange          ';
       it(`${expectedDateStr} if value is "${initDate}", minDate is "${minDate}", maxDate is "${maxDate}" and pressed "${keyString}"`, () => {
         const onValueChange = jest.fn();
-        const input = getInput(
-          render({ value: initDate, onValueChange, minDate, maxDate }),
-        );
+        const input = getInput(render({ value: initDate, onValueChange, minDate, maxDate }));
         input.simulate('focus');
         keys.forEach((key) => input.simulate('keydown', { key }));
         if (expected) {
