@@ -175,7 +175,7 @@ describe('ComboBox', () => {
     wrapper.update();
 
     expect(search).toHaveBeenCalledTimes(2);
-    expect(inputNode).toBe(document.activeElement);
+    expect(inputNode).toHaveFocus();
   });
 
   it('calls onUnexpectedInput on click outside', async () => {
@@ -657,7 +657,7 @@ describe('ComboBox', () => {
       wrapper.update();
 
       expect(inputNode).toBeTruthy();
-      expect(inputNode).toBe(document.activeElement); // input has focus
+      expect(inputNode).toHaveFocus();
       expect(inputNode.selectionStart).toBe(inputNode.selectionEnd); // input text is not selected
 
       expect(onFocus).toHaveBeenCalledTimes(0);
@@ -673,7 +673,7 @@ describe('ComboBox', () => {
       const inputNode = wrapper.find('input').getDOMNode() as HTMLInputElement;
 
       expect(inputNode).toBeTruthy();
-      expect(inputNode).toBe(document.activeElement); // input has focus
+      expect(inputNode).toHaveFocus();
       expect(inputNode.selectionStart).toBe(inputNode.selectionEnd); // input text is not selected
 
       expect(onFocus).toHaveBeenCalledTimes(0);
