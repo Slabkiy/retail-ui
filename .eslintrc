@@ -73,7 +73,6 @@
     "@typescript-eslint/no-var-requires": 0,
     "react/prop-types": 0,
     "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 0,
     "import/default": 0,
     "import/order": [
       2,
