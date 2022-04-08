@@ -57,8 +57,8 @@ function smoothScroll(element: HTMLElement, x: number, y: number): Promise<void>
       startY: window.scrollY || window.pageYOffset,
       method: scrollWindow,
       startTime: now(),
-      x: x,
-      y: y,
+      x,
+      y,
     };
   } else {
     context = {
@@ -67,8 +67,8 @@ function smoothScroll(element: HTMLElement, x: number, y: number): Promise<void>
       startY: element.scrollTop,
       method: scrollElement,
       startTime: now(),
-      x: x,
-      y: y,
+      x,
+      y,
     };
   }
 

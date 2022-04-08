@@ -76,7 +76,7 @@ export class ValidationBuilder<TRoot, T> {
     if (isValidationInfo(messageOrValidationInfo)) {
       validationWriter.set(messageOrValidationInfo);
     } else {
-      validationWriter.set({ message: messageOrValidationInfo, type: type, level: level, independent: independent });
+      validationWriter.set({ message: messageOrValidationInfo, type, level, independent });
     }
   }
 
@@ -91,7 +91,7 @@ export class ValidationBuilder<TRoot, T> {
       data = data[part];
     }
 
-    return { data: data, path: [...this.path, ...path] };
+    return { data, path: [...this.path, ...path] };
   }
 }
 
