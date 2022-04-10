@@ -46,15 +46,17 @@ export interface DateSelectState {
 }
 
 const calculatePos = (pos: number, minPos: number, maxPos: number) => {
+  let newPos = pos;
+
   if (minPos >= pos) {
-    return minPos;
+    newPos = minPos;
   }
 
   if (maxPos <= pos) {
-    return maxPos;
+    newPos = maxPos;
   }
 
-  return pos;
+  return newPos;
 };
 
 @locale('DatePicker', DatePickerLocaleHelper)
