@@ -374,7 +374,7 @@ export class Button extends React.Component<ButtonProps, ButtonState> {
     return (
       <CommonWrapper rootNodeRef={this.setRootNode} {...this.props}>
         <span {...wrapProps}>
-          <button ref={this._ref} {...rootProps} style={{ ...rootProps.style }}>
+          <button ref={this._ref} {...rootProps}>
             {innerShadowNode}
             {outlineNode}
             {loadingNode}
