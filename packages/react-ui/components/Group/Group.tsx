@@ -100,12 +100,11 @@ export class Group extends React.Component<GroupProps> {
             }
 
             const isWidthInPercent = Boolean(child.props.width && child.props.width.toString().includes('%'));
-            const itemCss = cx({
-              [styles.item()]: true,
-              [styles.itemFirst()]: child === firstChild,
-            });
 
             const modifiedChild = passCornersIfButton(child, firstChild, lastChild);
+
+            const isFirstChild = child === firstChild;
+            const hasOnlyOneChild = firstChild === null;
 
             return (
               <div
@@ -115,7 +114,14 @@ export class Group extends React.Component<GroupProps> {
                   [styles.stretchFallback()]: Boolean(isWidthInPercent && this.props.width && (isIE11 || isEdge)),
                 })}
               >
-                <div className={itemCss}>{modifiedChild}</div>
+                <div
+                  className={cx({
+                    [styles.item()]: true,
+                    [styles.itemFirst()]: isFirstChild || hasOnlyOneChild,
+                  })}
+                >
+                  {modifiedChild}
+                </div>
               </div>
             );
           })}
