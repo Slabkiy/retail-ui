@@ -1,7 +1,7 @@
 import { Entries } from '../../../typings/utility-types';
 
 import { KeyboardEventCodes as Codes } from './KeyboardEventCodes';
-import { KeyboardMapKeys, KeyCode, Location } from './KeyboardMapKeys';
+import { KeyboardKey, KeyboardMapKeys } from './KeyboardMapKeys';
 
 export function extractCode(e: React.KeyboardEvent<HTMLElement> | KeyboardEvent): Codes {
   const event = (e as React.KeyboardEvent<HTMLElement>).nativeEvent || e;
@@ -11,7 +11,7 @@ export function extractCode(e: React.KeyboardEvent<HTMLElement> | KeyboardEvent)
 
   const keyCode = event.keyCode || event.which;
   const location = event.location;
-  const mapped = (Object.entries as Entries<Codes, Array<[KeyCode, Location]>>)(KeyboardMapKeys).find(([, set]) =>
+  const mapped = (Object.entries as Entries<Codes, KeyboardKey[]>)(KeyboardMapKeys).find(([, set]) =>
     set.some(([_keyCode, _location]) => _keyCode === keyCode && _location === location),
   );
 

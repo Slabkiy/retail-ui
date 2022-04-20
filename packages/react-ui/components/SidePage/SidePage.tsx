@@ -304,7 +304,7 @@ export class SidePage extends React.Component<SidePageProps, SidePageState> {
     };
   }
 
-  private handleStackChange = (stack: ReadonlyArray<React.Component>) => {
+  private handleStackChange = (stack: readonly React.Component[]) => {
     const sidePages = stack.filter((x) => x instanceof SidePage && x.props.fromLeft === this.props.fromLeft);
     const currentSidePagePosition = sidePages.indexOf(this);
 

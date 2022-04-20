@@ -149,7 +149,9 @@ const prefixesReducer = (acc: string[], current: { title: string; prefix: string
   const splitPrefix = current.prefix.split(' ');
   return [...acc, ...splitPrefix];
 };
-const getBaseVariables = (theme: Theme, variable: keyof Theme): Array<keyof Theme> => {
+
+type GetBaseVariablesReturnType = Array<keyof Theme>;
+const getBaseVariables = (theme: Theme, variable: keyof Theme): GetBaseVariablesReturnType => {
   // TODO: Rewrite for loop.
   // TODO: Enable `no-param-reassign` rule.
   // eslint-disable-next-line no-param-reassign
@@ -160,7 +162,7 @@ const getBaseVariables = (theme: Theme, variable: keyof Theme): Array<keyof Them
       if (descriptor && typeof descriptor.get !== 'undefined') {
         const getterBody = descriptor.get.toString();
         const variableNameMatchArray = getterBody.match(/this\.(\w+)\b/gm) || [];
-        return (variableNameMatchArray || []).map((v) => v.replace(/this\./g, '')) as Array<keyof Theme>;
+        return (variableNameMatchArray || []).map((v) => v.replace(/this\./g, '')) as GetBaseVariablesReturnType;
       }
       break;
     }
